@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+*.log
+# NOTE: models/, reports/ and data/ are committed on purpose so the app starts instantly
+# when deployed. Re-create them any time with `python train.py`.

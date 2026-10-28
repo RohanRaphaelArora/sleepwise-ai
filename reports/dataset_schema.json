@@ -1,0 +1,168 @@
+{
+  "file": "C:\\Users\\rohan\\Downloads\\SleepWise_AI_Project_24215220\\sleepwise-ai\\data\\raw\\Sleep_health_and_lifestyle_dataset.csv",
+  "sha256": "1efe7b6f781ff88078d08d81fe136cff98b1b0c32560f35f8650ca5984b77841",
+  "rows": 374,
+  "columns": 13,
+  "column_names": [
+    "Person ID",
+    "Gender",
+    "Age",
+    "Occupation",
+    "Sleep Duration",
+    "Quality of Sleep",
+    "Physical Activity Level",
+    "Stress Level",
+    "BMI Category",
+    "Blood Pressure",
+    "Heart Rate",
+    "Daily Steps",
+    "Sleep Disorder"
+  ],
+  "column_details": [
+    {
+      "name": "Person ID",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 374,
+      "example": "1"
+    },
+    {
+      "name": "Gender",
+      "dtype": "text",
+      "missing": 0,
+      "unique_values": 2,
+      "example": "Male"
+    },
+    {
+      "name": "Age",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 31,
+      "example": "27"
+    },
+    {
+      "name": "Occupation",
+      "dtype": "text",
+      "missing": 0,
+      "unique_values": 11,
+      "example": "Software Engineer"
+    },
+    {
+      "name": "Sleep Duration",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 27,
+      "example": "6.1"
+    },
+    {
+      "name": "Quality of Sleep",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 6,
+      "example": "6"
+    },
+    {
+      "name": "Physical Activity Level",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 16,
+      "example": "42"
+    },
+    {
+      "name": "Stress Level",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 6,
+      "example": "6"
+    },
+    {
+      "name": "BMI Category",
+      "dtype": "text",
+      "missing": 0,
+      "unique_values": 4,
+      "example": "Overweight"
+    },
+    {
+      "name": "Blood Pressure",
+      "dtype": "text",
+      "missing": 0,
+      "unique_values": 25,
+      "example": "126/83"
+    },
+    {
+      "name": "Heart Rate",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 19,
+      "example": "77"
+    },
+    {
+      "name": "Daily Steps",
+      "dtype": "numeric",
+      "missing": 0,
+      "unique_values": 20,
+      "example": "4200"
+    },
+    {
+      "name": "Sleep Disorder",
+      "dtype": "text",
+      "missing": 0,
+      "unique_values": 3,
+      "example": "None"
+    }
+  ],
+  "missing_values_total": 0,
+  "duplicate_rows_exact": 0,
+  "duplicate_rows_ignoring_id": 242,
+  "distinct_rows_ignoring_id": 132,
+  "distinct_model_feature_combinations": 109,
+  "distinct_feature_and_target_combinations": 109,
+  "target": {
+    "name": "Quality of Sleep",
+    "present": true,
+    "min": 4.0,
+    "max": 9.0,
+    "mean": 7.31283422459893,
+    "value_counts": {
+      "4": 5,
+      "5": 7,
+      "6": 105,
+      "7": 77,
+      "8": 109,
+      "9": 71
+    }
+  },
+  "feature_roles": {
+    "numeric": [
+      "Age",
+      "Sleep Duration",
+      "Physical Activity Level",
+      "Stress Level",
+      "Heart Rate",
+      "Daily Steps",
+      "Systolic BP",
+      "Diastolic BP"
+    ],
+    "categorical": [
+      "Gender",
+      "Occupation",
+      "BMI Category"
+    ],
+    "excluded": {
+      "Person ID": "Row identifier; carries no information about sleep quality.",
+      "Quality of Sleep": "Prediction target; using it as an input would be target leakage.",
+      "Sleep Disorder": "Excluded from the initial model by design: it is a recorded outcome that sits alongside sleep quality and could leak information about the target."
+    },
+    "derived": {
+      "Blood Pressure": [
+        "Systolic BP",
+        "Diastolic BP"
+      ]
+    }
+  },
+  "notes": [
+    "'None' in 'Sleep Disorder' is a real category (no disorder), not a missing value.",
+    "'Blood Pressure' text is split into numeric 'Systolic BP' and 'Diastolic BP'.",
+    "'Normal Weight' is merged into 'Normal' in 'BMI Category' (same group, two spellings)."
+  ]
+}

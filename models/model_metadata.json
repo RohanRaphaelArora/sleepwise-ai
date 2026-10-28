@@ -1,0 +1,192 @@
+{
+  "model_name": "Neural Network (MLP)",
+  "trained_at_utc": "2026-10-28T11:57:00+00:00",
+  "target": {
+    "name": "Quality of Sleep",
+    "observed_min": 4.0,
+    "observed_max": 9.0,
+    "scale_min": 1.0,
+    "scale_max": 10.0
+  },
+  "features": [
+    {
+      "name": "Age",
+      "kind": "numeric",
+      "unit": "years",
+      "observed_min": 28.0,
+      "observed_max": 59.0,
+      "median": 41.0,
+      "is_integer": true,
+      "hard_min": 6.0,
+      "hard_max": 100.0
+    },
+    {
+      "name": "Sleep Duration",
+      "kind": "numeric",
+      "unit": "hours per night",
+      "observed_min": 5.8,
+      "observed_max": 8.5,
+      "median": 7.2,
+      "is_integer": false,
+      "hard_min": 0.0,
+      "hard_max": 16.0
+    },
+    {
+      "name": "Physical Activity Level",
+      "kind": "numeric",
+      "unit": "dataset activity level",
+      "observed_min": 30.0,
+      "observed_max": 90.0,
+      "median": 60.0,
+      "is_integer": true,
+      "hard_min": 0.0,
+      "hard_max": 300.0
+    },
+    {
+      "name": "Stress Level",
+      "kind": "numeric",
+      "unit": "scale 1-10",
+      "observed_min": 3.0,
+      "observed_max": 8.0,
+      "median": 5.0,
+      "is_integer": true,
+      "hard_min": 1.0,
+      "hard_max": 10.0
+    },
+    {
+      "name": "Heart Rate",
+      "kind": "numeric",
+      "unit": "beats per minute",
+      "observed_min": 65.0,
+      "observed_max": 86.0,
+      "median": 70.0,
+      "is_integer": true,
+      "hard_min": 35.0,
+      "hard_max": 200.0
+    },
+    {
+      "name": "Daily Steps",
+      "kind": "numeric",
+      "unit": "steps per day",
+      "observed_min": 3000.0,
+      "observed_max": 10000.0,
+      "median": 7000.0,
+      "is_integer": true,
+      "hard_min": 0.0,
+      "hard_max": 50000.0
+    },
+    {
+      "name": "Systolic BP",
+      "kind": "numeric",
+      "unit": "mmHg",
+      "observed_min": 115.0,
+      "observed_max": 140.0,
+      "median": 130.0,
+      "is_integer": true,
+      "hard_min": 70.0,
+      "hard_max": 250.0
+    },
+    {
+      "name": "Diastolic BP",
+      "kind": "numeric",
+      "unit": "mmHg",
+      "observed_min": 75.0,
+      "observed_max": 95.0,
+      "median": 85.0,
+      "is_integer": true,
+      "hard_min": 40.0,
+      "hard_max": 150.0
+    },
+    {
+      "name": "Gender",
+      "kind": "categorical",
+      "categories": [
+        "Female",
+        "Male"
+      ],
+      "default": "Female",
+      "category_counts": {
+        "Female": 152,
+        "Male": 136
+      }
+    },
+    {
+      "name": "Occupation",
+      "kind": "categorical",
+      "categories": [
+        "Accountant",
+        "Doctor",
+        "Engineer",
+        "Lawyer",
+        "Nurse",
+        "Sales Representative",
+        "Salesperson",
+        "Scientist",
+        "Software Engineer",
+        "Teacher"
+      ],
+      "default": "Nurse",
+      "category_counts": {
+        "Nurse": 61,
+        "Engineer": 57,
+        "Doctor": 56,
+        "Lawyer": 37,
+        "Accountant": 35,
+        "Teacher": 25,
+        "Salesperson": 10,
+        "Scientist": 4,
+        "Sales Representative": 2,
+        "Software Engineer": 1
+      }
+    },
+    {
+      "name": "BMI Category",
+      "kind": "categorical",
+      "categories": [
+        "Normal",
+        "Obese",
+        "Overweight"
+      ],
+      "default": "Normal",
+      "category_counts": {
+        "Normal": 184,
+        "Overweight": 97,
+        "Obese": 7
+      }
+    }
+  ],
+  "feature_order": [
+    "Age",
+    "Sleep Duration",
+    "Physical Activity Level",
+    "Stress Level",
+    "Heart Rate",
+    "Daily Steps",
+    "Systolic BP",
+    "Diastolic BP",
+    "Gender",
+    "Occupation",
+    "BMI Category"
+  ],
+  "network": {
+    "implementation": "scikit-learn MLPRegressor",
+    "layer_sizes": [
+      23,
+      64,
+      32,
+      1
+    ],
+    "activation": "relu",
+    "output_activation": "identity (linear)",
+    "optimizer": "adam",
+    "l2_alpha": 0.001,
+    "learning_rate_init": 0.001,
+    "early_stopping": true,
+    "epochs_run": 86,
+    "best_validation_r2": 0.9845936432948742,
+    "trainable_parameters": 3649
+  },
+  "sklearn_version": "1.9.1",
+  "pandas_version": "3.1.0",
+  "python_version": "3.13.13"
+}

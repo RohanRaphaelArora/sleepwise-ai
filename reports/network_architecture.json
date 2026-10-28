@@ -1,0 +1,18 @@
+{
+  "implementation": "scikit-learn MLPRegressor",
+  "layer_sizes": [
+    23,
+    64,
+    32,
+    1
+  ],
+  "activation": "relu",
+  "output_activation": "identity (linear)",
+  "optimizer": "adam",
+  "l2_alpha": 0.001,
+  "learning_rate_init": 0.001,
+  "early_stopping": true,
+  "epochs_run": 86,
+  "best_validation_r2": 0.9845936432948742,
+  "trainable_parameters": 3649
+}

@@ -1,0 +1,142 @@
+{
+  "shape": {
+    "rows": 374,
+    "columns": 13
+  },
+  "dtypes": {
+    "Person ID": "int64",
+    "Gender": "str",
+    "Age": "int64",
+    "Occupation": "str",
+    "Sleep Duration": "float64",
+    "Quality of Sleep": "int64",
+    "Physical Activity Level": "int64",
+    "Stress Level": "int64",
+    "BMI Category": "str",
+    "Blood Pressure": "str",
+    "Heart Rate": "int64",
+    "Daily Steps": "int64",
+    "Sleep Disorder": "str"
+  },
+  "missing_values": {
+    "Person ID": 0,
+    "Gender": 0,
+    "Age": 0,
+    "Occupation": 0,
+    "Sleep Duration": 0,
+    "Quality of Sleep": 0,
+    "Physical Activity Level": 0,
+    "Stress Level": 0,
+    "BMI Category": 0,
+    "Blood Pressure": 0,
+    "Heart Rate": 0,
+    "Daily Steps": 0,
+    "Sleep Disorder": 0
+  },
+  "duplicates": {
+    "exact_rows": 0,
+    "ignoring_person_id": 242
+  },
+  "describe_numeric": {
+    "Age": {
+      "count": 374.0,
+      "mean": 42.184,
+      "std": 8.673,
+      "min": 27.0,
+      "25%": 35.25,
+      "50%": 43.0,
+      "75%": 50.0,
+      "max": 59.0
+    },
+    "Sleep Duration": {
+      "count": 374.0,
+      "mean": 7.132,
+      "std": 0.796,
+      "min": 5.8,
+      "25%": 6.4,
+      "50%": 7.2,
+      "75%": 7.8,
+      "max": 8.5
+    },
+    "Quality of Sleep": {
+      "count": 374.0,
+      "mean": 7.313,
+      "std": 1.197,
+      "min": 4.0,
+      "25%": 6.0,
+      "50%": 7.0,
+      "75%": 8.0,
+      "max": 9.0
+    },
+    "Physical Activity Level": {
+      "count": 374.0,
+      "mean": 59.171,
+      "std": 20.831,
+      "min": 30.0,
+      "25%": 45.0,
+      "50%": 60.0,
+      "75%": 75.0,
+      "max": 90.0
+    },
+    "Stress Level": {
+      "count": 374.0,
+      "mean": 5.385,
+      "std": 1.775,
+      "min": 3.0,
+      "25%": 4.0,
+      "50%": 5.0,
+      "75%": 7.0,
+      "max": 8.0
+    },
+    "Heart Rate": {
+      "count": 374.0,
+      "mean": 70.166,
+      "std": 4.136,
+      "min": 65.0,
+      "25%": 68.0,
+      "50%": 70.0,
+      "75%": 72.0,
+      "max": 86.0
+    },
+    "Daily Steps": {
+      "count": 374.0,
+      "mean": 6816.845,
+      "std": 1617.916,
+      "min": 3000.0,
+      "25%": 5600.0,
+      "50%": 7000.0,
+      "75%": 8000.0,
+      "max": 10000.0
+    },
+    "Systolic BP": {
+      "count": 374.0,
+      "mean": 128.553,
+      "std": 7.748,
+      "min": 115.0,
+      "25%": 125.0,
+      "50%": 130.0,
+      "75%": 135.0,
+      "max": 142.0
+    },
+    "Diastolic BP": {
+      "count": 374.0,
+      "mean": 84.65,
+      "std": 6.162,
+      "min": 75.0,
+      "25%": 80.0,
+      "50%": 85.0,
+      "75%": 90.0,
+      "max": 95.0
+    }
+  },
+  "pearson_correlation_with_target": {
+    "Stress Level": -0.899,
+    "Sleep Duration": 0.883,
+    "Heart Rate": -0.66,
+    "Age": 0.474,
+    "Physical Activity Level": 0.193,
+    "Systolic BP": -0.122,
+    "Diastolic BP": -0.11,
+    "Daily Steps": 0.017
+  }
+}

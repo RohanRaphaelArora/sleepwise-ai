@@ -1,0 +1,46 @@
+{
+  "model_name": "Neural Network (MLP)",
+  "variant": "duration_only",
+  "target": {
+    "name": "Quality of Sleep",
+    "observed_min": 4.0,
+    "observed_max": 9.0,
+    "scale_min": 1.0,
+    "scale_max": 10.0
+  },
+  "features": [
+    {
+      "name": "Sleep Duration",
+      "kind": "numeric",
+      "unit": "hours per night",
+      "observed_min": 5.8,
+      "observed_max": 8.5,
+      "median": 7.2,
+      "is_integer": false,
+      "hard_min": 0.0,
+      "hard_max": 16.0
+    }
+  ],
+  "feature_order": [
+    "Sleep Duration"
+  ],
+  "network": {
+    "implementation": "scikit-learn MLPRegressor",
+    "layer_sizes": [
+      1,
+      64,
+      32,
+      1
+    ],
+    "activation": "relu",
+    "output_activation": "identity (linear)",
+    "optimizer": "adam",
+    "l2_alpha": 0.001,
+    "learning_rate_init": 0.001,
+    "early_stopping": true,
+    "epochs_run": 223,
+    "best_validation_r2": 0.8880359010097076,
+    "trainable_parameters": 2241
+  },
+  "sklearn_version": "1.9.1"
+}

@@ -1,0 +1,11 @@
+# Exact versions used when the project was built and tested (Python 3.12.3).
+# Streamlit and pytest are not listed because they could not be installed in the offline
+# build environment; install them with: pip install streamlit pytest
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+scipy==1.17.1
+matplotlib==3.10.8
+seaborn==0.13.2
+joblib==1.5.3
+threadpoolctl==3.6.0
