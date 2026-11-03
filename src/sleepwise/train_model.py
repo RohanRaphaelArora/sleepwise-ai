@@ -203,11 +203,15 @@ def _feature_metadata(X_train: pd.DataFrame, roles: FeatureRoles) -> list[dict]:
     for col in roles.categorical:
         s = X_train[col].dropna()
         counts = s.value_counts()
+        categories = sorted(str(c) for c in counts.index)
+        optional = config.OPTIONAL_UNOBSERVED_CATEGORIES.get(col, ())
+        categories = sorted(set(categories).union(optional))
         specs.append(
             {
                 "name": col,
                 "kind": "categorical",
-                "categories": sorted(str(c) for c in counts.index),
+                "categories": categories,
+                "unsupported_categories": sorted(set(optional) - set(str(c) for c in counts.index)),
                 "default": str(counts.index[0]),
                 "category_counts": {str(k): int(v) for k, v in counts.items()},
             }

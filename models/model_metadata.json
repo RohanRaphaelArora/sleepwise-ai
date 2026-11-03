@@ -1,6 +1,6 @@
 {
   "model_name": "Neural Network (MLP)",
-  "trained_at_utc": "2026-10-28T11:57:00+00:00",
+  "trained_at_utc": "2026-11-03T04:40:38+00:00",
   "target": {
     "name": "Quality of Sleep",
     "observed_min": 4.0,
@@ -17,7 +17,7 @@
       "observed_max": 59.0,
       "median": 41.0,
       "is_integer": true,
-      "hard_min": 6.0,
+      "hard_min": 1.0,
       "hard_max": 100.0
     },
     {
@@ -28,8 +28,8 @@
       "observed_max": 8.5,
       "median": 7.2,
       "is_integer": false,
-      "hard_min": 0.0,
-      "hard_max": 16.0
+      "hard_min": 1.0,
+      "hard_max": 10.0
     },
     {
       "name": "Physical Activity Level",
@@ -104,6 +104,7 @@
         "Female",
         "Male"
       ],
+      "unsupported_categories": [],
       "default": "Female",
       "category_counts": {
         "Female": 152,
@@ -125,6 +126,7 @@
         "Software Engineer",
         "Teacher"
       ],
+      "unsupported_categories": [],
       "default": "Nurse",
       "category_counts": {
         "Nurse": 61,
@@ -145,7 +147,11 @@
       "categories": [
         "Normal",
         "Obese",
-        "Overweight"
+        "Overweight",
+        "Underweight"
+      ],
+      "unsupported_categories": [
+        "Underweight"
       ],
       "default": "Normal",
       "category_counts": {
@@ -186,7 +192,7 @@
     "best_validation_r2": 0.9845936432948742,
     "trainable_parameters": 3649
   },
-  "sklearn_version": "1.9.1",
-  "pandas_version": "3.1.0",
+  "sklearn_version": "1.6.1",
+  "pandas_version": "2.2.3",
   "python_version": "3.13.13"
 }

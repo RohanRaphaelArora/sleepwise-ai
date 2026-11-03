@@ -184,7 +184,7 @@ def model_ready(variant: str = "full") -> bool:
 def show_train_instruction() -> None:
     if BOOT_STATUS in ("missing_data", "error"):
         st.error(BOOT_MESSAGE)
-    st.warning("The models have not been trained yet. Run the training step, then reload this page.")
+    st.caption("The models have not been trained yet. Run the training step, then reload this page.")
     st.code("python train.py", language="powershell")
 
 
@@ -319,14 +319,20 @@ def page_analysis() -> None:
     with left:
         with st.form("analysis_form"):
             default_hours = round(dur_spec["median"] * 4) / 4
-            hours = st.slider("Average sleep duration (hours per night)", 0.0, 16.0, float(default_hours), 0.25)
-            st.caption("The 0 to 16 hour range is for the interface only. It is not a clinical threshold.")
+            hours = st.slider("Average sleep duration (hours per night)", 1.0, 10.0,
+                              min(max(float(default_hours), 1.0), 10.0), 0.25)
+            st.caption("Enter a sleep duration from 1 to 10 hours per night.")
             values = {DURATION: hours}
             extra_specs = [s for s in meta_full["features"] if s["name"] != DURATION]
             if use_more:
                 cols = st.columns(2)
                 for i, spec in enumerate(extra_specs):
                     values[spec["name"]] = _render_input(spec, cols[i % 2])
+                    if (spec["name"] == config.BMI_COLUMN
+                            and values[spec["name"]] in spec.get("unsupported_categories", [])):
+                        cols[i % 2].caption(
+                            "This category is not represented in the training data, so its specific effect was not learned."
+                        )
             submitted = st.form_submit_button("Analyze Sleep", type="primary")
         if not use_more:
             st.caption("Only sleep duration will be used. Other details are ignored.")
@@ -360,7 +366,7 @@ def page_analysis() -> None:
         if result.was_clipped:
             st.info("The raw model output was outside the 1 to 10 scale and was clipped for display. Clipping says nothing about accuracy.")
         for note in result.warnings:
-            st.warning(note)
+            st.caption(f"Training-range note: {note}")
 
     # ---- explanation, performance and education (full width, below the form) ----
     exps = (metrics or {}).get("experiments") or {}

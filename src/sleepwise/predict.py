@@ -139,6 +139,11 @@ def validate_inputs(inputs: dict, metadata: dict) -> tuple[dict, list[str]]:
                 problems.append(f"'{name}' must be one of {spec['categories']} (got {text!r}).")
                 continue
             clean[name] = text
+            if text in spec.get("unsupported_categories", []):
+                notes.append(
+                    f"'{text}' for '{name}' is not represented in the training data; "
+                    "the model cannot learn a category-specific effect for this selection."
+                )
 
     names = {spec["name"] for spec in metadata["features"]}
     if config.SYSTOLIC_COLUMN in names and config.DIASTOLIC_COLUMN in names:

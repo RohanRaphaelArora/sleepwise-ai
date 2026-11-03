@@ -82,6 +82,11 @@ ID_LIKE_NAMES = {"person id", "id", "user id", "userid", "index", "row id"}
 CATEGORY_ALIASES: dict[str, dict[str, str]] = {
     BMI_COLUMN: {"Normal Weight": "Normal"},
 }
+# Input choices requested by the app that are not observed in this dataset. They are
+# accepted for completeness, but the fitted model cannot learn a category-specific effect.
+OPTIONAL_UNOBSERVED_CATEGORIES: dict[str, tuple[str, ...]] = {
+    BMI_COLUMN: ("Underweight",),
+}
 
 # Strings treated as missing when reading the CSV. NOTE: "None" is deliberately NOT
 # in this list: in "Sleep Disorder", "None" is a real category (no disorder).
@@ -109,8 +114,8 @@ TARGET_SCALE_MAX = 10.0
 # Input validation for the prediction form (hard limits, not the training range)
 # --------------------------------------------------------------------------- #
 PLAUSIBLE_RANGES: dict[str, tuple[float, float]] = {
-    "Age": (6, 100),  # minors are allowed so the app can say the model was trained on adults only
-    SLEEP_DURATION_COLUMN: (0.0, 16.0),  # interface limits only, NOT clinical thresholds
+    "Age": (1, 100),
+    SLEEP_DURATION_COLUMN: (1.0, 10.0),  # requested interface limits, NOT clinical thresholds
     ACTIVITY_COLUMN: (0, 300),
     STRESS_COLUMN: (1, 10),
     "Heart Rate": (35, 200),

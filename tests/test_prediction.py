@@ -80,7 +80,7 @@ def test_missing_model_artifacts_raise_helpful_error(tmp_path):
 def test_invalid_inputs_are_all_reported(tmp_path):
     models_dir = _train(tmp_path)
     metadata = pred.load_metadata(models_dir)
-    bad = {**_valid_inputs(metadata), "Age": 5, "Occupation": "Astronaut", "Systolic BP": 70, "Diastolic BP": 90}
+    bad = {**_valid_inputs(metadata), "Age": 0, "Occupation": "Astronaut", "Systolic BP": 70, "Diastolic BP": 90}
     del bad["Heart Rate"]
     with pytest.raises(pred.InputValidationError) as err:
         pred.validate_inputs(bad, metadata)
@@ -142,9 +142,30 @@ def test_duration_only_prediction_responds_to_duration(tmp_path):
 
 def test_sleep_duration_outside_interface_range_is_rejected(tmp_path):
     models_dir = _train(tmp_path)
-    for bad in (-1, 17, "abc"):
+    for bad in (0, 10.1, "abc"):
         with pytest.raises(pred.InputValidationError):
             pred.predict_quality({"Sleep Duration": bad}, models_dir=models_dir, variant="duration_only")
+
+
+def test_requested_age_and_duration_boundaries_are_accepted(tmp_path):
+    models_dir = _train(tmp_path)
+    metadata = pred.load_metadata(models_dir)
+    for age in (1, 100):
+        pred.validate_inputs({**_valid_inputs(metadata), "Age": age}, metadata)
+    for hours in (1, 10):
+        pred.predict_quality({"Sleep Duration": hours}, models_dir=models_dir, variant="duration_only")
+
+
+def test_underweight_is_available_but_reported_as_unrepresented(tmp_path):
+    models_dir = _train(tmp_path)
+    metadata = pred.load_metadata(models_dir)
+    bmi = next(spec for spec in metadata["features"] if spec["name"] == config.BMI_COLUMN)
+    assert "Underweight" in bmi["categories"]
+    result = pred.predict_quality(
+        {**_valid_inputs(metadata), config.BMI_COLUMN: "Underweight"},
+        models_dir=models_dir,
+    )
+    assert any("not represented in the training data" in note for note in result.warnings)
 
 
 def test_missing_duration_only_artifacts_raise_helpful_error(tmp_path):

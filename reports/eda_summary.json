@@ -5,18 +5,18 @@
   },
   "dtypes": {
     "Person ID": "int64",
-    "Gender": "str",
+    "Gender": "object",
     "Age": "int64",
-    "Occupation": "str",
+    "Occupation": "object",
     "Sleep Duration": "float64",
     "Quality of Sleep": "int64",
     "Physical Activity Level": "int64",
     "Stress Level": "int64",
-    "BMI Category": "str",
-    "Blood Pressure": "str",
+    "BMI Category": "object",
+    "Blood Pressure": "object",
     "Heart Rate": "int64",
     "Daily Steps": "int64",
-    "Sleep Disorder": "str"
+    "Sleep Disorder": "object"
   },
   "missing_values": {
     "Person ID": 0,

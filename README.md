@@ -55,7 +55,7 @@ A dark, narrative dashboard modelled on the layout of the reference site you sup
 | Page | Purpose |
 |---|---|
 | 01 Home | Question, three-step explainer, workflow diagram, dataset summary, model status, limitations |
-| 02 Sleep Analysis | Enter sleep duration (required, 0 to 16 hours, interface range only) and optional lifestyle details, press **Analyze Sleep**; without details the duration-only model is used |
+| 02 Sleep Analysis | Enter sleep duration (required, 1 to 10 hours) and optional lifestyle details, press **Analyze Sleep**; without details the duration-only model is used |
 | 03 Behavioural Insights | Observed relationships (A), what the model relies on (B), pointer to general information (C) |
 | 04 Potential Effects | Educational guidance with age table, effects, evidence type, source links and disclaimers (not model output) |
 | 05 Model Performance | Experiment A versus B, architecture, cross-validation, test results, reliability notes |
